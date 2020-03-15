@@ -17,7 +17,7 @@ const port = process.env.PORT
 // mongoose.connection.on('connected', () => {
 //   console.log('connected!')
 // })
-const mongooseConnection = mongoose
+mongoose
   .connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-taijg.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -44,7 +44,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.set('trust proxy', 1)
 app.use(session({
-  genid: (req) => uuid(),
+  genid: () => uuid(),
   secret: process.env.SESSION_SECRET,
   resave: true,
   rolling: true,
