@@ -7,11 +7,8 @@ beforeEach(() => {
 })
 
 test('component should have text content', () => {
-  const text = 'homie.'
-  const wrapper = shallow(<Home name={text}/>)
-  expect(wrapper.text()).toEqual(text)
-  expect(wrapper.containsMatchingElement(<div>{text}</div>)).toBeTruthy()
-  expect(wrapper.containsMatchingElement(<br/>)).toBeTruthy()
+  const wrapper = shallow(<Home/>)
+  expect(wrapper.hasClass('main-container'))
   expect(wrapper).toMatchSnapshot()
   wrapper.unmount()
 })

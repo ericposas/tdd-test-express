@@ -2,11 +2,12 @@
 
 exports[`component should have text content 1`] = `
 <Fragment>
-  <div>
-    <div>
-      homie.
-    </div>
-    <br />
+  <div
+    className=".main-container"
+  >
+    <TitleBar
+      title="My title"
+    />
   </div>
 </Fragment>
 `;

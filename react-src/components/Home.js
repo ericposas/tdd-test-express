@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import useName from './hooks/useName'
+import TitleBar from './TitleBar'
 
 function Home({ ...props }) {
 
@@ -13,11 +14,11 @@ function Home({ ...props }) {
 
   return (
     <>
-      <div>
-        <div>
-          {name}
-        </div>
-        <br/>
+      <div
+      className='.main-container'
+      >
+        <TitleBar title={'My title'}/>
+
       </div>
     </>
   )
