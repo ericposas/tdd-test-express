@@ -1,22 +1,19 @@
 import React, { Component } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from './Home'
 
-class App extends Component {
+export default function App(props) {
 
-  render() {
-    return (
-      <>
-        <Router>
-            <Switch>
-              <Route exact path='/' render={() => (
-                  <div>Now serving React content.</div>
-                )}/>
-            </Switch>
-        </Router>
-      </>
-    )
-  }
+  return (
+    <>
+      <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Home name='Hello.'/>
+            </Route>
+          </Switch>
+      </Router>
+    </>
+  )
 
 }
-
-export default App

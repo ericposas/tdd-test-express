@@ -15,12 +15,6 @@ afterEach(() => server.close())
 
 beforeAll(() => jest.setTimeout(10000))
 
-describe('Sample Test', () => {
-	it('should test that true === true', () => {
-		expect(true).toBe(true)
-	})
-})
-
 describe('Get home path', () => {
 	it('should get the home page', async () => {
 		const res = await request(server)
@@ -29,7 +23,7 @@ describe('Get home path', () => {
 	})
 })
 
-describe('Create new thing, Update the thing, Delete the thing', () => {
+describe('Create new thing, Get created Thing _id, Test Update and Delete routes', () => {
 	it('should create a new thing in the database', async () => {
 		const res = await request(server)
 			.post('/things')
@@ -43,6 +37,13 @@ describe('Create new thing, Update the thing, Delete the thing', () => {
 	it('should fail to create a new thing in db', async () => {
 		const res = await request(server)
 			.post('/things')
+			.send({})
+		expect(res.statusCode).toEqual(404)
+		expect(res.body).toHaveProperty('error')
+	})
+	it('should fail to update thing', async () => {
+		const res = await request(server)
+			.put('/things/'+id)
 			.send({})
 		expect(res.statusCode).toEqual(404)
 		expect(res.body).toHaveProperty('error')
