@@ -1,5 +1,5 @@
 {
-  "name": "tdd-test",
+  "name": "tdd-test-express-jest",
   "version": "0.0.0",
   "private": true,
   "scripts": {
